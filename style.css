@@ -7,11 +7,13 @@
   font-family: "Source Sans 3", sans-serif;
 }
 header {
-  background: linear-gradient(180deg, #fff 0%, #e2f1ff 100%);
+  padding-bottom: 80px;
+  background: linear-gradient(177.7deg, #fff 0%, #e2f1ff 92%, #fff 92%);
 }
 .container {
   margin: 0 auto;
   max-width: 960px;
+  /* padding-bottom: 30px; */
 }
 .navbar {
   display: flex;
@@ -182,7 +184,8 @@ header {
 }
 /* .beak {
   width: 480px;
-height: 480px;
+  height: 480px;
+  background: #f9f0ff;
 } */
 .Trusted {
   display: flex;
