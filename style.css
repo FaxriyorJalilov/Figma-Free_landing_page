@@ -13,7 +13,6 @@ header {
 .container {
   margin: 0 auto;
   max-width: 960px;
-  /* padding-bottom: 30px; */
 }
 .navbar {
   display: flex;
@@ -28,7 +27,7 @@ header {
 }
 .nav_links ul li a {
   color: #000;
-  font-family: Metropolis;
+  /* font-family: Metropolis; */
   font-size: 14px;
   font-weight: 500;
 }
@@ -43,7 +42,11 @@ header {
   background: #fff;
   color: #722ed1;
 }
-.nav_links i {
+.nav_links i,
+.nav_links input {
+  display: none;
+}
+.nav_links ul li:nth-child(2) {
   display: none;
 }
 .content {
@@ -143,7 +146,6 @@ header {
 }
 .valuable h3 {
   color: #160637;
-  /* text-align: center; */
   font-size: 16px;
   font-weight: 700;
   line-height: 24px;
@@ -153,7 +155,6 @@ header {
 
 .valuable p {
   color: #8989a2;
-  /* text-align: center; */
   font-size: 16px;
   font-weight: 500;
   line-height: 24px;
@@ -170,6 +171,7 @@ header {
 .start_hero {
   display: flex;
   column-gap: 45px;
+  position: relative;
 }
 .start_left,
 .start_right {
@@ -182,11 +184,15 @@ header {
   line-height: 40px;
   margin-bottom: 46px;
 }
-/* .beak {
-  width: 480px;
+.beak {
+  max-width: 480px;
   height: 480px;
   background: #f9f0ff;
-} */
+  /* position: relative; */
+}
+
+.start_right {
+}
 .Trusted {
   display: flex;
   align-items: center;
@@ -207,7 +213,6 @@ header {
   margin-top: 50px;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  /* column-gap: 1px; */
   row-gap: 65px;
 }
 .start_right h3 {
@@ -222,7 +227,10 @@ header {
   font-size: 16px;
   font-weight: 500;
 }
-.start_right {
+
+.start_right_hero {
+  max-width: 428px;
+  height: 494px;
   display: inline-flex;
   padding: 32px 40px;
   flex-direction: column;
@@ -231,7 +239,10 @@ header {
   gap: 16px;
   border-radius: 8px;
   background: #fff;
-  box-shadow: 0px 30px 30px 0px rgba(137, 137, 162, 0.12);
+  position: absolute;
+  top: -32px;
+  right: 26px;
+  /*  box-shadow: 0px 30px 30px 0px rgba(137, 137, 162, 0.12); */
 }
 .start_right h3 + a {
   color: #fff;
@@ -240,7 +251,7 @@ header {
   font-weight: 500;
   line-height: 24px;
   background-color: #722ed1;
-  padding: 12px 125px;
+  padding: 12px 95px;
   border-radius: 6px;
 }
 .start_right input {
@@ -315,19 +326,126 @@ footer {
   font-size: 16px;
   font-weight: 700;
 }
+
+/* ---RESPONSEVI---- */
+
+@media (max-width: 850px) {
+  .container {
+    margin: 0 auto;
+    max-width: 800;
+    padding: 20px;
+  }
+  .content {
+    display: flex;
+    column-gap: 15px;
+    margin-top: 90px;
+    align-items: center;
+  }
+  .content_left h3 {
+    margin-top: 28px;
+    margin-bottom: 20px;
+    color: #000;
+    font-size: 40px;
+    font-weight: 700;
+    max-width: 450px;
+  }
+  .content_right img {
+    height: 370px;
+    width: 100%;
+    /* background-position: center; */
+    /* transform: rotate(2); */
+  }
+  .start_right_hero {
+    width: 42%;
+    position: absolute;
+    top: -32px;
+    right: 8px;
+  }
+  .start_right h3 + a {
+    padding: 12px 58px;
+  }
+  .Pricing_btm {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+  }
+  .footer_addres {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    padding: 39px 0px 38px 0px;
+    text-align: center;
+  }
+}
+
 @media (max-width: 430px) {
   .container {
     margin: 0 auto;
     max-width: 380;
     padding: 15px;
   }
-  .nav_links i {
+  .nav_links label i {
     display: block;
     font-size: 32px;
   }
-  .nav_links ul {
+  .nav_links ul li a {
+    font-size: 32px;
+    color: white;
+    font-weight: 600;
+    width: 100%;
+    padding: 15%;
+  }
+  .nav_links ul li:first-child {
     display: none;
   }
+  .nav_links ul li:nth-child(2) {
+    display: block;
+  }
+  .nav_links ul {
+    position: fixed;
+    top: 30px;
+    right: 100%;
+    background-color: #363131;
+    width: 100%;
+    height: 100vh;
+    text-align: center;
+    padding: 10% 0% 10% 0%;
+    display: block;
+    line-height: 450%;
+    border-radius: 2%;
+    transition: 0.5s;
+  }
+  #check {
+    display: none;
+  }
+  label #cancel {
+    color: white;
+  }
+  label #btn {
+    z-index: 200;
+  }
+  label #btn,
+  label #cancel {
+    position: absolute;
+    top: 30px;
+    right: 30px;
+  }
+  label #btn:hover,
+  label #cancel:hover {
+    cursor: pointer;
+    color: blue;
+  }
+  #check:checked ~ ul {
+    right: 15px;
+  }
+  #check:checked ~ label #btn {
+    display: none;
+  }
+  #check:checked ~ label #cancel {
+    display: block;
+    z-index: 101;
+    color: #ca3713;
+  }
+
   .content {
     display: flex;
     flex-wrap: wrap;
@@ -342,12 +460,8 @@ footer {
   .content_right {
     width: 100%;
     display: none;
-    /* transform: rotate(0.5); */
   }
-  /* .content_right img {
-    transform: rotate(1.5);
-    padding: unset;
-  } */
+
   .content_left_a {
     display: flex;
     justify-content: center;
@@ -361,11 +475,17 @@ footer {
   }
   .start_hero {
     flex-wrap: wrap;
-    gap: 45px;
+    gap: 140px;
   }
   .start_left,
   .start_right {
     width: 100%;
+  }
+  .start_right_hero {
+    width: 93%;
+    position: absolute;
+    top: 485px;
+    right: 12px;
   }
   .start_left h3 {
     text-align: center;
@@ -377,6 +497,9 @@ footer {
     row-gap: 35px;
     margin: 0 auto;
   }
+  .Start {
+    margin-bottom: 40px;
+  }
   .footer_addres {
     grid-template-columns: repeat(1, 1fr);
     gap: 20px;
@@ -384,6 +507,6 @@ footer {
     text-align: center;
   }
   .start_right h3 + a {
-    padding: 12px 75px;
+    padding: 12px 27px;
   }
 }
